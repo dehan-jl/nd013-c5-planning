@@ -212,7 +212,8 @@ When you finish updating the project files, you can execute the project using th
 ```bash
 # Build the project
 # Run the following commands from the starter_files/ directory
-cmake .
+mkdir build && cd build
+cmake ..
 # The command below compiles your c++ code. Run it after each time you edit the CPP or Header files
 make
 ```
@@ -230,7 +231,12 @@ Another possible error you may get is `bind failed. Error: Address already in us
 ```bash
 ps -aux | grep carla
 # Use the IDs displayed in the output of the last command. 
-kill id     
+kill id
+```
+
+The better (one liner) way of doing this is:
+```bash
+pgrep -f carla | xargs -r kill -9
 ```
 
 <br/><br/>
